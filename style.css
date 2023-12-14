@@ -75,7 +75,7 @@ header {
     justify-content: left;
     align-items: center;
 
-    & .pages-index {
+    & .page-index {
         height: 40px;
         width: 40px;
         margin: 4px 4px 4px 4px;
