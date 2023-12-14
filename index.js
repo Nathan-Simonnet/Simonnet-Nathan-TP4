@@ -5,7 +5,7 @@ const main = document.querySelector('main')
 let pageIndex;
 let totalResult;
 let moviesList = [];
-let movieName = "";
+let movieName = "batman";
 let notFound = 'https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found.jpg'
 
 const indexesContainer = document.querySelector('.indexes-container');
@@ -17,7 +17,6 @@ const indexPagesDisplayer = (data) => {
     // console.log(numberOfPages)
 
 
-
     indexesContainer.innerHTML = "";
     for (let i = 1; i < numberOfPages + 1; i++) {
         indexesContainer.innerHTML += `
@@ -27,7 +26,7 @@ const indexPagesDisplayer = (data) => {
     }
     pageIndex.forEach((index) => {
         index.addEventListener('click', () => {
-            // console.log(index.id)
+            console.log(movieName, index.id)
             movieNameFetcher(movieName, index.id)
         });
     });
@@ -62,7 +61,6 @@ const moviesDisplayer = (movies) => {
     }
 }
 
-
 const movieNameFetcher = async (movie, page) => {
     const options = {
         method: 'GET',
@@ -85,7 +83,6 @@ const movieNameFetcher = async (movie, page) => {
     indexPagesDisplayer(totalResult)
 
 }
-
 
 window.addEventListener('load', () => {
     movieNameFetcher('batmAn', 1)
