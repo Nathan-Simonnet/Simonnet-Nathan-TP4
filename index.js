@@ -14,14 +14,14 @@ const indexPagesDisplayer = (data) => {
 
     data > 200 ? data = 200 : data;
     let numberOfPages = Math.floor(data / 20)
-    // console.log(numberOfPages)
-
 
     indexesContainer.innerHTML = "";
     for (let i = 1; i < numberOfPages + 1; i++) {
-        indexesContainer.innerHTML += `
-        <span class="page-index" id="${i}">${i}</span>
-        `
+        var pageIndex = document.createElement("span");
+        pageIndex.className = "page-index";
+        pageIndex.id = i;
+        pageIndex.textContent = i;
+        indexesContainer.appendChild(pageIndex);
         pageIndex = document.querySelectorAll('.page-index');
     }
     pageIndex.forEach((index) => {
@@ -44,20 +44,35 @@ const moviesDisplayer = (movies) => {
         } else {
             img = `https://image.tmdb.org/t/p/original/${movies[i].poster_path}`
         }
-        main.innerHTML +=
-            `
-        <div class="movie-container">
-            <div class="img-movie">
-                <img src="${img}" alt="image du film ${movies[i].title}">
-            </div>
-            <div class="title-movie-container">
-                <h3>${movies[i].title}</h3>
-            </div>
-            <div class="infos-movie-container">
-                <p>${movies[i].overview}</p>
-            </div>
-        </div>
-        `
+        let movieContainer = document.createElement("div");
+        movieContainer.className = "movie-container";
+
+        let imgMovie = document.createElement("div");
+        imgMovie.className = "img-movie";
+        let imgElement = document.createElement("img");
+        imgElement.src = img;
+        imgElement.alt = "image du film " + movies[i].title;
+        imgMovie.appendChild(imgElement);
+
+        let titleMovieContainer = document.createElement("div");
+        titleMovieContainer.className = "title-movie-container";
+        let titleElement = document.createElement("h3");
+        titleElement.textContent = movies[i].title;
+        titleMovieContainer.appendChild(titleElement);
+
+        let infosMovieContainer = document.createElement("div");
+        infosMovieContainer.className = "infos-movie-container";
+        let pElement = document.createElement("p");
+        pElement.textContent = movies[i].overview;
+        infosMovieContainer.appendChild(pElement);
+
+        // Ajouter les éléments au conteneur principal
+        movieContainer.appendChild(imgMovie);
+        movieContainer.appendChild(titleMovieContainer);
+        movieContainer.appendChild(infosMovieContainer);
+
+        // Ajouter le conteneur principal à l'élément parent
+        main.appendChild(movieContainer);
     }
 }
 
