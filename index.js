@@ -1,5 +1,4 @@
-// 379cd6130723c7c61a78ce00569516c5
-// eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzljZDYxMzA3MjNjN2M2MWE3OGNlMDA1Njk1MTZjNSIsInN1YiI6IjY1N2FlMTIxN2EzYzUyMDEwY2RmOWFiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5CMWVNczbg37OUH7kmPMoRvuNiNe4MK44IyWSdXI7TQ
+const key = 'A remplir'
 
 const main = document.querySelector('main')
 let pageIndex;
@@ -81,7 +80,7 @@ const movieNameFetcher = async (movie, page) => {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNzljZDYxMzA3MjNjN2M2MWE3OGNlMDA1Njk1MTZjNSIsInN1YiI6IjY1N2FlMTIxN2EzYzUyMDEwY2RmOWFiYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5CMWVNczbg37OUH7kmPMoRvuNiNe4MK44IyWSdXI7TQ'
+            Authorization: 'Bearer ' + key
         }
     };
 
